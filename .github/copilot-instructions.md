@@ -8,7 +8,8 @@
 
 ## Build, test, and lint
 
-- No build, test, or lint commands or automated test runner are configured.
+- No local build, test, or lint commands or automated test runner are configured. The Pages workflow stages the root `index.html` as its CI check.
+- `.github/workflows/deploy-pages.yml` stages the site for pull requests to `main` and deploys after pushes to `main` or a manual dispatch from `main`.
 - To run the app, open `index.html` in a browser. There is no single-test command; for a focused manual check, answer one question correctly and one incorrectly, then verify the score, feedback, and progression.
 
 ## Quiz and UI conventions

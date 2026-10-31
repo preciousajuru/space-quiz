@@ -213,7 +213,30 @@
       gap: 12px;
     }
 
-    .top-row { margin-bottom: 18px; }
+    .top-row { margin-bottom: 14px; }
+
+    .player-row { margin: -5px 0 14px; }
+
+    .player-chip {
+      display: inline-flex;
+      max-width: 100%;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .player-chip strong {
+      overflow: hidden;
+      color: var(--ink);
+      font-size: 12px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
 
     .eyebrow {
       color: var(--muted);
@@ -225,18 +248,43 @@
     .score-pill {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      padding: 6px 11px;
+      gap: 8px;
+      padding: 5px 10px 5px 8px;
       border: 1px solid var(--line);
       border-radius: 999px;
       background: var(--surface-soft);
       color: var(--ink);
-      font-size: 13px;
-      font-weight: 700;
       white-space: nowrap;
     }
 
     .score-icon { color: #e9a323; }
+
+    .score-label {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .score-number {
+      display: grid;
+      min-width: 29px;
+      height: 29px;
+      place-items: center;
+      border-radius: 9px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 15px;
+      font-variant-numeric: tabular-nums;
+      font-weight: 850;
+    }
+
+    .score-total {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 650;
+    }
 
     .progress-track {
       height: 8px;
@@ -261,6 +309,115 @@
     }
 
     .card-body { padding: 30px 34px 34px; }
+
+    .welcome-copy {
+      margin: 10px 0 23px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .welcome-visual {
+      position: relative;
+      display: grid;
+      height: 112px;
+      place-items: center;
+      margin: 0 0 15px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background:
+        radial-gradient(ellipse at 50% 50%, var(--accent-soft), transparent 65%),
+        var(--surface-soft);
+    }
+
+    .welcome-orbit {
+      position: absolute;
+      width: 132px;
+      height: 52px;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      opacity: .35;
+      transform: rotate(-24deg);
+    }
+
+    .welcome-planet { z-index: 1; font-size: 45px; }
+
+    .welcome-rocket {
+      position: absolute;
+      top: 17px;
+      right: 23%;
+      font-size: 25px;
+    }
+
+    .welcome-spark {
+      position: absolute;
+      color: var(--accent);
+      font-size: 17px;
+    }
+
+    .welcome-spark:nth-child(4) { top: 20px; left: 22%; }
+    .welcome-spark:nth-child(5) { right: 19%; bottom: 17px; font-size: 12px; }
+
+    .welcome-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 21px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .welcome-stats li {
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .welcome-stats strong { color: var(--accent); }
+
+    .name-form { display: grid; gap: 9px; }
+
+    .name-label {
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .name-row {
+      display: flex;
+      align-items: stretch;
+      gap: 10px;
+    }
+
+    .name-input {
+      min-width: 0;
+      min-height: 46px;
+      flex: 1;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface-soft);
+      color: var(--ink);
+      font: inherit;
+    }
+
+    .name-input::placeholder { color: var(--muted); opacity: .8; }
+    .name-input:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--accent) 45%, transparent);
+      outline-offset: 3px;
+    }
+
+    .privacy-note {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .question-stage { min-width: 0; }
 
     .question-kicker {
       display: inline-flex;
@@ -415,10 +572,39 @@
     }
 
     .results {
+      position: relative;
       padding: 43px 34px 39px;
       text-align: center;
       animation: rise-in .4s ease both;
     }
+
+    .results--celebration .result-emoji {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .celebration {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .celebration-star {
+      position: absolute;
+      top: 12px;
+      color: var(--accent);
+      font-size: 20px;
+      opacity: .65;
+    }
+
+    .celebration-star:nth-child(1) { left: 12%; }
+    .celebration-star:nth-child(2) { left: 27%; color: var(--green); font-size: 14px; }
+    .celebration-star:nth-child(3) { right: 26%; }
+    .celebration-star:nth-child(4) { right: 12%; color: var(--green); font-size: 15px; }
+
+    .results > :not(.celebration) { position: relative; z-index: 1; }
 
     .result-emoji {
       display: grid;
@@ -434,20 +620,21 @@
     }
 
     .results h1 { margin: 0 auto; }
+    .result-player { margin: 0 0 9px; color: var(--muted); font-size: 14px; }
     .result-copy { margin: 10px auto 21px; color: var(--muted); font-size: 15px; }
 
     .result-score {
       display: inline-flex;
-      align-items: baseline;
-      gap: 6px;
-      padding: 10px 17px;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 18px;
       border: 1px solid var(--line);
-      border-radius: 13px;
+      border-radius: 15px;
       background: var(--surface-soft);
       font-weight: 750;
     }
 
-    .result-score strong { color: var(--accent); font-size: 23px; }
+    .result-score strong { color: var(--accent); font-size: 27px; font-variant-numeric: tabular-nums; }
     .result-score span { color: var(--muted); font-size: 13px; font-weight: 600; }
     .result-actions { display: flex; justify-content: center; margin-top: 24px; }
 
@@ -467,8 +654,36 @@
       to { opacity: 1; transform: scale(1) rotate(0); }
     }
 
+    @keyframes question-enter {
+      from { opacity: 0; transform: translateY(9px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes score-pop {
+      45% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes float {
+      50% { transform: translateY(-4px); }
+    }
+
+    @keyframes confetti-drop {
+      12% { opacity: .75; }
+      100% { opacity: 0; transform: translateY(390px) rotate(150deg) scale(1.15); }
+    }
+
     @keyframes star-drift {
       to { background-position: 196px 176px; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .question-stage.question-enter { animation: question-enter .34s cubic-bezier(.2, .8, .2, 1) both; }
+      .score-number.score-pop { animation: score-pop .32s ease-out; }
+      .welcome-planet { animation: float 3.2s ease-in-out infinite; }
+      .welcome-rocket { animation: float 2.4s ease-in-out infinite reverse; }
+      .celebration-star { animation: confetti-drop 1.8s ease-in both; }
+      .celebration-star:nth-child(2), .celebration-star:nth-child(4) { animation-delay: .12s; }
     }
 
     @media (max-width: 520px) {
@@ -479,7 +694,14 @@
       .card-body { padding: 24px 21px 25px; }
       .results { padding: 37px 22px 31px; }
       .answer { min-height: 53px; padding: 10px 12px; }
+      .name-row { flex-direction: column; }
+      .name-row .primary-button { width: 100%; }
+      .welcome-visual { height: 96px; }
+      .welcome-rocket { right: 18%; }
+      .welcome-spark:nth-child(4) { left: 16%; }
     }
+
+    [hidden] { display: none !important; }
 
     @media (prefers-reduced-motion: reduce) {
       body::before { animation: none; }
@@ -507,10 +729,22 @@
       </span>
     </div>
     <section class="card" aria-label="Space exploration quiz">
-      <header class="card-top">
+      <header class="card-top" id="quiz-header" hidden>
         <div class="top-row">
           <span class="eyebrow" id="question-count">Question 1 of 10</span>
-          <span class="score-pill" aria-live="polite"><span class="score-icon" aria-hidden="true">★</span> Score <span id="score">0</span></span>
+          <span class="score-pill" aria-live="polite" aria-atomic="true">
+            <span class="score-icon" aria-hidden="true">★</span>
+            <span class="score-label">Score</span>
+            <strong class="score-number" id="score">0</strong>
+            <span class="score-total">/10</span>
+          </span>
+        </div>
+        <div class="player-row">
+          <span class="player-chip">
+            <span aria-hidden="true">✧</span>
+            <span>Explorer</span>
+            <strong id="player-display"></strong>
+          </span>
         </div>
         <div
           class="progress-track"
@@ -525,19 +759,60 @@
         </div>
         <div class="progress-label" id="progress-label">10% complete</div>
       </header>
-      <div class="card-body" id="quiz-content" aria-live="polite">
-        <div class="question-kicker"><span aria-hidden="true">✧</span> Cosmic curiosity</div>
-        <h1 id="question" tabindex="-1">Loading your mission…</h1>
-        <p class="hint">Choose the best answer to keep your mission on course.</p>
-        <div class="answers" id="answers"></div>
-        <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
-        <div class="actions">
-          <button class="primary-button" id="next-button" type="button" hidden>
-            <span id="next-label">Next question</span><span aria-hidden="true">→</span>
-          </button>
+      <div class="card-body welcome-screen" id="welcome-screen">
+        <div class="question-kicker"><span aria-hidden="true">✧</span> Developer event challenge</div>
+        <h1 id="welcome-title" tabindex="-1">Ready for launch, explorer?</h1>
+        <p class="welcome-copy">Take on ten rapid-fire space questions. Score 8 or more to unlock the celebration.</p>
+        <div class="welcome-visual" aria-hidden="true">
+          <span class="welcome-orbit"></span>
+          <span class="welcome-planet">🪐</span>
+          <span class="welcome-rocket">🚀</span>
+          <span class="welcome-spark">✦</span>
+          <span class="welcome-spark">✧</span>
         </div>
+        <ul class="welcome-stats" aria-label="Challenge details">
+          <li><strong>10</strong> questions</li>
+          <li><strong>8+</strong> for a celebration</li>
+          <li>Just for you</li>
+        </ul>
+        <p class="welcome-copy">Choose a display name or moniker to join the mission.</p>
+        <form class="name-form" id="welcome-form">
+          <label class="name-label" for="player-name">Display name or moniker</label>
+          <div class="name-row">
+            <input
+              class="name-input"
+              id="player-name"
+              name="player-name"
+              type="text"
+              autocomplete="nickname"
+              maxlength="40"
+              placeholder="e.g. Nova"
+              aria-describedby="privacy-note"
+              required
+            >
+            <button class="primary-button" type="submit">
+              <span>Start Quiz</span><span aria-hidden="true">→</span>
+            </button>
+          </div>
+          <p class="privacy-note" id="privacy-note">Your name and score stay in this browser session. There is no shared or live leaderboard.</p>
+        </form>
       </div>
-      <footer class="card-footer" id="card-footer"><span aria-hidden="true">🚀</span> Ten questions. One tiny step for your brain.</footer>
+      <div class="card-body" id="quiz-content" aria-live="polite" hidden>
+        <div class="question-stage" id="question-stage">
+          <div class="question-kicker"><span aria-hidden="true">✧</span> Cosmic curiosity</div>
+          <h1 id="question" tabindex="-1">Loading your mission…</h1>
+          <p class="hint">Choose the best answer to keep your mission on course.</p>
+          <div class="answers" id="answers"></div>
+          <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+          <div class="actions">
+            <button class="primary-button" id="next-button" type="button" hidden>
+              <span id="next-label">Next question</span><span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+        <div class="results" id="results-panel" hidden></div>
+      </div>
+      <footer class="card-footer" id="card-footer" hidden><span aria-hidden="true">🚀</span> Ten questions. One tiny step for your brain.</footer>
     </section>
   </main>
 
@@ -605,6 +880,13 @@
       }
     ];
 
+    const welcomeScreen = document.getElementById("welcome-screen");
+    const welcomeForm = document.getElementById("welcome-form");
+    const playerNameInput = document.getElementById("player-name");
+    const quizHeader = document.getElementById("quiz-header");
+    const playerDisplay = document.getElementById("player-display");
+    const questionStage = document.getElementById("question-stage");
+    const resultsPanel = document.getElementById("results-panel");
     const questionCount = document.getElementById("question-count");
     const scoreDisplay = document.getElementById("score");
     const progressTrack = document.getElementById("progress-track");
@@ -621,9 +903,35 @@
     let currentQuestion = 0;
     let score = 0;
     let answered = false;
+    let playerName = "";
+
+    playerNameInput.addEventListener("input", () => {
+      playerNameInput.setCustomValidity("");
+    });
+
+    welcomeForm.addEventListener("submit", event => {
+      event.preventDefault();
+      const name = playerNameInput.value.trim();
+      if (!name) {
+        playerNameInput.setCustomValidity("Enter a display name or moniker to start.");
+        playerNameInput.reportValidity();
+        return;
+      }
+
+      playerName = name;
+      playerDisplay.textContent = playerName;
+      welcomeScreen.hidden = true;
+      quizHeader.hidden = false;
+      quizContent.hidden = false;
+      cardFooter.hidden = false;
+      renderQuestion();
+      questionTitle.focus();
+    });
 
     function renderQuestion() {
       const item = questions[currentQuestion];
+      questionStage.hidden = false;
+      resultsPanel.hidden = true;
       questionCount.textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
       questionTitle.textContent = item.question;
       answersContainer.replaceChildren();
@@ -655,6 +963,9 @@
       progressFill.style.width = `${(progress / questions.length) * 100}%`;
       progressTrack.setAttribute("aria-valuenow", progress);
       progressLabel.textContent = `${Math.round((progress / questions.length) * 100)}% complete`;
+      questionStage.classList.remove("question-enter");
+      void questionStage.offsetWidth;
+      questionStage.classList.add("question-enter");
     }
 
     function selectAnswer(selectedIndex, selectedButton) {
@@ -669,6 +980,9 @@
       if (isCorrect) {
         score++;
         scoreDisplay.textContent = score;
+        scoreDisplay.classList.remove("score-pop");
+        void scoreDisplay.offsetWidth;
+        scoreDisplay.classList.add("score-pop");
         selectedButton.classList.add("correct");
       } else {
         selectedButton.classList.add("wrong");
@@ -687,20 +1001,20 @@
     }
 
     function showResults() {
-      const percentage = score / questions.length;
+      const celebrate = score >= 8;
       let emoji;
       let title;
       let message;
 
-      if (percentage === 1) {
+      if (score === questions.length) {
         emoji = "🏆";
-        title = "Out of this world!";
-        message = "A perfect mission. You really know your way around the cosmos.";
-      } else if (percentage >= 0.7) {
-        emoji = "🚀";
-        title = "Stellar exploring!";
-        message = "You’re charting the cosmos like a pro. Keep that curiosity going!";
-      } else if (percentage >= 0.4) {
+        title = "Flawless flight!";
+        message = "A perfect score! You know your way around the cosmos.";
+      } else if (celebrate) {
+        emoji = "🎉";
+        title = "Stellar launch!";
+        message = `You cleared the 8-point celebration mark with ${score} correct answers!`;
+      } else if (score >= 4) {
         emoji = "🪐";
         title = "Nice cosmic journey!";
         message = "You’ve got a great start. There’s always more universe to discover.";
@@ -716,8 +1030,8 @@
       questionCount.textContent = "Mission complete";
       cardFooter.hidden = true;
 
-      const results = document.createElement("div");
-      results.className = "results";
+      resultsPanel.replaceChildren();
+      resultsPanel.className = `results${celebrate ? " results--celebration" : ""}`;
 
       const resultEmoji = document.createElement("div");
       resultEmoji.className = "result-emoji";
@@ -725,6 +1039,9 @@
       resultEmoji.textContent = emoji;
       const resultTitle = document.createElement("h1");
       resultTitle.textContent = title;
+      const resultPlayer = document.createElement("p");
+      resultPlayer.className = "result-player";
+      resultPlayer.textContent = `Mission pilot: ${playerName}`;
       const resultCopy = document.createElement("p");
       resultCopy.className = "result-copy";
       resultCopy.textContent = message;
@@ -742,13 +1059,45 @@
       const restartButton = document.createElement("button");
       restartButton.className = "primary-button";
       restartButton.type = "button";
-      restartButton.innerHTML = '<span>Play again</span><span aria-hidden="true">↻</span>';
-      restartButton.addEventListener("click", () => window.location.reload());
+      const restartLabel = document.createElement("span");
+      restartLabel.textContent = "Play Again";
+      const restartIcon = document.createElement("span");
+      restartIcon.setAttribute("aria-hidden", "true");
+      restartIcon.textContent = "↻";
+      restartButton.append(restartLabel, restartIcon);
+      restartButton.addEventListener("click", restartQuiz);
       resultActions.append(restartButton);
 
-      results.append(resultEmoji, resultTitle, resultCopy, resultScore, resultActions);
-      quizContent.replaceChildren(results);
+      if (celebrate) {
+        const celebration = document.createElement("div");
+        celebration.className = "celebration";
+        celebration.setAttribute("aria-hidden", "true");
+        ["✦", "✧", "✦", "✧"].forEach(symbol => {
+          const star = document.createElement("span");
+          star.className = "celebration-star";
+          star.textContent = symbol;
+          celebration.append(star);
+        });
+        resultsPanel.append(celebration);
+      }
+
+      resultsPanel.append(resultEmoji, resultPlayer, resultTitle, resultCopy, resultScore, resultActions);
+      questionStage.hidden = true;
+      resultsPanel.hidden = false;
       restartButton.focus();
+    }
+
+    function restartQuiz() {
+      currentQuestion = 0;
+      score = 0;
+      answered = false;
+      scoreDisplay.textContent = "0";
+      scoreDisplay.classList.remove("score-pop");
+      cardFooter.hidden = false;
+      resultsPanel.replaceChildren();
+      resultsPanel.className = "results";
+      renderQuestion();
+      questionTitle.focus();
     }
 
     function advance() {
@@ -762,7 +1111,6 @@
     }
 
     nextButton.addEventListener("click", advance);
-    renderQuestion();
   </script>
 </body>
 </html>
